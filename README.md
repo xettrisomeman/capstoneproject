@@ -68,9 +68,9 @@ Output variable (desired target):
 ### Downloading the project
 
 1. Clone the repo
-- ``git clone https://github.com/xettrisomeman/mlbootcamp.git``
+- ``git clone https://github.com/xettrisomeman/capstoneproject``
 2. Check directory
-- ``cd mlbootcamp/midtermproject``
+- ``cd capstoneproject``
 3. Installing Dependencies
 
 
