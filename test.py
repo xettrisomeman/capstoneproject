@@ -6,6 +6,7 @@ from typing import List
 
 
 port = 5000
+
 url = f"http://localhost:{port}/predict/"
 
 
@@ -16,7 +17,7 @@ class Data:
                           'retired', 'self-employed', 'services', 'student', 'technician', 'unemployed', 'unknown'])
     marital = random.choices(
         ['divorced', 'married', 'single', 'unknown'])
-    education = random.choices(['basic.4y', 'basic.6y', 'basic.6y', 'high.school',
+    education = random.choices(['basic.4y', 'basic.6y', 'basic.9y', 'high.school',
                                 'illiterate', 'professional.course', 'university.degree', 'unknown'])
     default = random.choices(['yes', 'no', 'unknown'])
     housing = random.choices(['no', 'yes', 'unknown'])
