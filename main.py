@@ -13,6 +13,11 @@ from utils import drop_corr_features, change_feature
 st.title("Portugese Bank Telemarketing Prediction")
 
 
+st.caption(
+    "Checking if a client will subscribe to term deposit or not based on data provided by the user.")
+url = "https://archive.ics.uci.edu/ml/datasets/bank+marketing"
+st.caption(f"Data link: {url}")
+
 job_check = ["admin.", "blue-collar",
              "entrepreneur", "housemaid", "management", "retired", "student", "self-employed", "technician", "unemployed", "unknown"]
 
@@ -102,14 +107,21 @@ df_predict = drop_corr_features(df_predict)
 df_predict = df_predict.to_dict("records")
 
 X_test = dv.transform(df_predict)
-y_pred = model.predict(X_test)[0]
+y_pred = model.predict_proba(X_test)
 
-
+print(y_pred)
 st.subheader("Prediction:")
-if y_pred == 0:
-    st.write("Customer won't subscribe")
-else:
-    st.write("Customer will subscribe")
+
+
+def decision(x):
+    if x[0][0] > x[0][1]:
+        return "Customer won't subscribe"
+    else:
+        return "Customer will subscribe"
+
+
+st.write(y_pred)
+st.write(decision(y_pred))
 
 
 st.caption(
